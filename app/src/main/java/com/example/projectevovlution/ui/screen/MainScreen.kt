@@ -38,15 +38,25 @@ fun MainScreen(navController: NavController) {
     ) {
         items(items = list) { data ->
             Column {
-                Box(contentAlignment = Alignment.Center, modifier = Modifier
-                    .padding(vertical = 8.dp)
-                    .background(color = Color.White, shape = RoundedCornerShape(8.dp))
-                    .fillMaxSize()) {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.padding(vertical = 8.dp)) {
+                Box(
+                    contentAlignment = Alignment.Center, modifier = Modifier
+                        .padding(vertical = 8.dp)
+                        .background(color = Color.White, shape = RoundedCornerShape(8.dp))
+                        .fillMaxSize()
+                ) {
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        modifier = Modifier.padding(vertical = 8.dp)
+                    ) {
                         CreateText(data = data, navController)
                     }
                 }
-                Divider(modifier = Modifier.height(2.dp).padding(horizontal = 8.dp).background(Color.White))
+                Divider(
+                    modifier = Modifier
+                        .height(2.dp)
+                        .padding(horizontal = 8.dp)
+                        .background(Color.White)
+                )
             }
         }
     }
@@ -64,7 +74,8 @@ fun CreateText(data: String, navController: NavController) {
         ),
         modifier = Modifier.clickable {
             navController.navigate(
-                Screen.CalculatorScreen.withData())
+                Screen.CalculatorScreen.withData()
+            )
         },
         text = data
     )

@@ -31,7 +31,7 @@ fun NavController() {
             )
         ) {
             DetailScreen(
-                data = it.arguments?.getString("name")?:"Null "
+                data = it.arguments?.getString("name")?:"Null"
             )
         }
     }

@@ -5,5 +5,5 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun CalculatorScreen() {
-    Text(text = "This is a Calculator.")
+
 }
