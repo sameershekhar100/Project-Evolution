@@ -7,7 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.projectevovlution.ui.route.Screen
-import com.example.projectevovlution.ui.screen.CalculatorScreen
+import com.example.projectevovlution.ui.screen.calculatorscreen.CalculatorScreen
 import com.example.projectevovlution.ui.screen.DetailScreen
 import com.example.projectevovlution.ui.screen.MainScreen
 
