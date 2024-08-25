@@ -84,3 +84,9 @@ jobs:
         with:
           name: ${{ env.date_today }} - ${{ env.playstore_name }} - ${{ env.repository_name }} - App bundle(s) AAB release generated
           path: ${{ env.main_project_module }}/build/outputs/bundle/release/
+
+      - name: Upload Release Apk
+        uses: actions/upload-artifact@v3
+        with:
+          name: ProjectEvolution-apk
+          path: ${{ env.main_project_module }}/build/outputs/apk/release/app-release.apk
