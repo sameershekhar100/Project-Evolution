@@ -61,6 +61,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(project(":basicnote_1"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -71,6 +72,7 @@ dependencies {
     implementation(libs.compose.navigation)
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+//    implementation project (':mylibrary')
 }
 kapt {
     correctErrorTypes = true

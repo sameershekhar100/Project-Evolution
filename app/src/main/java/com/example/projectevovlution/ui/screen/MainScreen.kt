@@ -1,5 +1,6 @@
 package com.example.projectevovlution.ui.screen
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -25,10 +26,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.projectevovlution.ui.route.Screen
+import com.example.projectevovlution.ui.route.getStringId
 
 @Composable
 fun MainScreen(navController: NavController) {
-    val list = listOf("Calculator", "B", "C")
+    val list = listOf("Calculator Screen", "Notes Screen", "C")
     LazyColumn(
         modifier = Modifier
             .fillMaxWidth()
@@ -74,9 +76,12 @@ fun CreateText(data: String, navController: NavController) {
         ),
         modifier = Modifier.clickable {
             navController.navigate(
-                Screen.CalculatorScreen.withData()
+                data.getStringId().also {
+                    Log.d("zzzz",it.toString())
+                }.withData()
             )
         },
         text = data
     )
 }
+

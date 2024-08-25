@@ -1,16 +1,25 @@
 package com.example.projectevovlution.ui.screen.calculatorscreen
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -25,7 +34,7 @@ fun InputKeyView() {
     Column(modifier = Modifier.fillMaxWidth()) {
         var idx = 0
         repeat(3) {
-            Row {
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly, verticalAlignment = Alignment.CenterVertically) {
                 for (i in 0..3) {
                     CreateInputText(input[idx])
                     idx++
@@ -38,27 +47,16 @@ fun InputKeyView() {
 
 @Composable
 fun CreateInputText(input: String) {
-    Box(
-        modifier = Modifier
-            .padding(40.dp),
-        contentAlignment = Alignment.BottomEnd
-    ) {
-        Text(
-            modifier = Modifier
-                .drawBehind {
-                    drawCircle(
-                        color = Color(R.color.light_grey),
-                        radius = 98.0f
-                    )
-                },
-            textAlign = TextAlign.Center,
-            softWrap = false,
-            style = TextStyle(
-                color = Color.White,
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold,
-                fontStyle = FontStyle.Normal
-            ), text = input
-        )
-    }
+    Text(
+        modifier = Modifier.clip(CircleShape).background(Color.Blue).padding(20.dp),
+        textAlign = TextAlign.Center,
+        softWrap = false,
+        style = TextStyle(
+            color = Color.White,
+            fontSize = 18.sp,
+            fontWeight = FontWeight.Bold,
+            fontStyle = FontStyle.Normal
+        ), text = input
+    )
 }
+

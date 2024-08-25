@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Project Evolution"
 include(":app")
+include(":basicnote_1")
