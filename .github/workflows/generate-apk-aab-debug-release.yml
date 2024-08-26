@@ -58,12 +58,6 @@ jobs:
       - name: Build apk release project (APK)
         run: ./gradlew assemble
 
-        # Zip artifacts
-      - name: Zip project aritfacts
-        run: |
-          cd ./app/build/outputs
-          zip -r project-evolution
-
       # Create Bundle AAB Release
       # Noted for main module build [main_project_module]:bundleRelease
       - name: Build app bundle release (AAB)
