@@ -40,19 +40,6 @@ jobs:
           base64 -d keystore-b64.txt > keystore.jks
           chmod +x ./gradlew
 
-
-          
-          
-      - name: Cache Gradle packages
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: gradle-${{ runner.os }}-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            gradle-${{ runner.os }}
-
       - name: Build with Gradle
         env:
           RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
@@ -64,6 +51,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: evolution-apk
-          path: app/build/outputs/apk/debug/app-debug.apk  
+          path: app/build/outputs/apk/debug/app-release.apk  
 
           
