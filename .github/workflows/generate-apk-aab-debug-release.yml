@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-on-pr-from-specific-branches:
+   build:
     if: startsWith(github.head_ref, 'release/')
     runs-on: ubuntu-latest
     steps:
@@ -51,4 +51,34 @@ jobs:
         with:
           name: ProjectEvolution-apk
           path: ./app/build/outputs/apk
+
+
+      - name: Zip artifacts
+        run: |
+          cd ./app/build/outputs
+          zip -r project-evolution-sample-app.zip apk
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          body_path: ./Changelog.txt
+
+      - name: Upload Release Asset
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: ./app/build/outputs/apk
+          asset_name: ProjectEvolutionApk
+          asset_content_type: application/zip
         
