@@ -14,7 +14,7 @@ on:
 
 jobs:
   run-on-pr-from-specific-branches:
-    if: github.head_ref == 'release/**'
+    if: startsWith(github.head_ref, 'release/')
     runs-on: ubuntu-latest
     steps:
       - name: aaa
