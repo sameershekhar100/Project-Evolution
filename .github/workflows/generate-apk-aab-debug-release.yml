@@ -42,6 +42,7 @@ jobs:
 
       - name: Version Composer
         id: version_composer
+        shell: bash
         run: |
           versionName=$(grep "versionName" ./app/build.gradle.kts | awk '{ print $2 }' | tr -d '"')
           echo "Version Name: $versionName"
