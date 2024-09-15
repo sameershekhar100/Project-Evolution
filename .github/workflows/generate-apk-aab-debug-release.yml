@@ -68,7 +68,7 @@ jobs:
           release_name: Release ${{ github.ref_name }}
           draft: false
           prerelease: false
-          body_path: ./Changelog.txt
+          body_path: ./ChangeLog.txt
 
       - name: Upload Release Asset
         id: upload-release-asset 
