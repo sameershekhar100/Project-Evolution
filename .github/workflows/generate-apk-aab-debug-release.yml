@@ -43,7 +43,7 @@ jobs:
       - name: Version Composer
         id: version_composer
         run: |
-          versionName=$(grep "versionName" app/build.gradle | awk '{ print $2 }' | tr -d '"')
+          versionName=$(grep "versionName" ./app/build.gradle.kts | awk '{ print $2 }' | tr -d '"')
           echo "Version Name: $versionName"
           echo "::set-output name=version_name::$versionName"
 
