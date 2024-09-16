@@ -17,22 +17,7 @@ jobs:
     steps:
       - name: Checking out branch
         uses: actions/checkout@v3
-
-      - name: "dump github context"
-        run: echo '${{ toJSON(github.event) }}' | jq
-        shell: bash
-      - name: Create comment
-        uses: peter-evans/create-or-update-comment@v4
-        with:
-          issue-number: ${{ github.event.pull_request.number }}
-          body: |
-            Another PR raised!! :sparkles:
-            - Created by [create-or-update-comment][1]
-
-            [1]: https://github.com/peter-evans/create-or-update-comment
-          reactions: '+1'
-
-          
+    
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
