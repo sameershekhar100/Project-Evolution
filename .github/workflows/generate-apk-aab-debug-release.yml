@@ -64,7 +64,7 @@ jobs:
       - name: Zip artifacts
         run: |
           cd ./app/build/outputs
-          zip -r project-evolution-app-$(echo "${{ env.version_name }}).zip apk
+          zip -r project-evolution-app-$(echo "${{ env.version_name }}").zip apk
 
       - name: Create Release
         id: create_release
