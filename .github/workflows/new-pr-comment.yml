@@ -1,7 +1,8 @@
 name: Create a comment on new issues
 
 on:
-  issues:
+  pull_request:
+    branches: [main]
     types: [opened]
 
 jobs:
