@@ -43,10 +43,7 @@ jobs:
       - name: Version Composer
         id: version_composer
         shell: bash
-        run: |
-          versionName =$(./gradlew app:printVersionName)
-          echo "Version Name: $versionName"
-          echo "::set-output name=version_name::$versionName"
+        run: echo "version_name=$( ./gradlew -q app:printVersionName )" >> $GITHUB_ENV
 
       # Print the version name
       - name: Show Version Name
