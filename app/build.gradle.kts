@@ -77,3 +77,6 @@ dependencies {
 kapt {
     correctErrorTypes = true
 }
+tasks.register("printVersionName") {
+    println ("v" + android.defaultConfig.versionName )
+}
