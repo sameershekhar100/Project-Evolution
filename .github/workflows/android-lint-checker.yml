@@ -9,6 +9,8 @@ on:
       - '**.gradle'
       - gradle.properties
       - gradlew*
+      
+permissions: write-all
 
 jobs:
   android-lint:
