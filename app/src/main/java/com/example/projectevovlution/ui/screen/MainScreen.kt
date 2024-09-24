@@ -1,6 +1,5 @@
 package com.example.projectevovlution.ui.screen
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -25,12 +24,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.projectevovlution.ui.route.Screen
-import com.example.projectevovlution.ui.route.getStringId
+import com.example.projectevovlution.ui.route.getScreenId
 
 @Composable
 fun MainScreen(navController: NavController) {
-    val list = listOf("Calculator Screen", "Notes Screen", "C")
+    val list = listOf("Calculator Screen", "Notes Screen", "News App")
     LazyColumn(
         modifier = Modifier
             .fillMaxWidth()
@@ -50,7 +48,7 @@ fun MainScreen(navController: NavController) {
                         horizontalAlignment = Alignment.CenterHorizontally,
                         modifier = Modifier.padding(vertical = 8.dp)
                     ) {
-                        CreateText(data = data, navController)
+                        CreateText(screen = data, navController)
                     }
                 }
                 Divider(
@@ -65,7 +63,7 @@ fun MainScreen(navController: NavController) {
 }
 
 @Composable
-fun CreateText(data: String, navController: NavController) {
+fun CreateText(screen: String, navController: NavController) {
     Text(
         textAlign = TextAlign.Center,
         style = TextStyle(
@@ -76,12 +74,10 @@ fun CreateText(data: String, navController: NavController) {
         ),
         modifier = Modifier.clickable {
             navController.navigate(
-                data.getStringId().also {
-                    Log.d("zzzz",it.toString())
-                }.withData()
+                screen.getScreenId().withData()
             )
         },
-        text = data
+        text = screen
     )
 }
 
