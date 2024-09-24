@@ -36,5 +36,9 @@ fun NavController() {
         {
             NoteScreen()
         }
+
+//        composable(route = Screen.NewsScreen.route){
+//            NewsScreen
+//        }
     }
 }
