@@ -1,5 +1,6 @@
 package com.example.projectevovlution.ui.route
 
+import android.util.Log
 import com.example.projectevovlution.ui.route.Screen.CalculatorScreen
 import com.example.projectevovlution.ui.route.Screen.MainScreen
 import com.example.projectevovlution.ui.route.Screen.NewsScreen
@@ -27,6 +28,7 @@ fun String.getScreenId(): Screen {
         .lowercase()
         .split(" ")
         .joinToString("_")
+    Log.d("zzzzz1",id)
     return when (id) {
         "main_screen" -> MainScreen
         "calculator_screen" -> CalculatorScreen

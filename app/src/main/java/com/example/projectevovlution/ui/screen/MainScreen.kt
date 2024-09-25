@@ -1,5 +1,6 @@
 package com.example.projectevovlution.ui.screen
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -28,7 +29,7 @@ import com.example.projectevovlution.ui.route.getScreenId
 
 @Composable
 fun MainScreen(navController: NavController) {
-    val list = listOf("Calculator Screen", "Notes Screen", "News App")
+    val list = listOf("Calculator Screen", "Notes Screen", "News Screen")
     LazyColumn(
         modifier = Modifier
             .fillMaxWidth()
@@ -73,8 +74,10 @@ fun CreateText(screen: String, navController: NavController) {
             fontStyle = FontStyle.Normal
         ),
         modifier = Modifier.clickable {
+            Log.d("zzzzz",screen)
             navController.navigate(
                 screen.getScreenId().withData()
+
             )
         },
         text = screen
