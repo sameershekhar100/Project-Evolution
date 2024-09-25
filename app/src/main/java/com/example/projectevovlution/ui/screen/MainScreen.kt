@@ -1,6 +1,5 @@
 package com.example.projectevovlution.ui.screen
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -38,28 +37,33 @@ fun MainScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         items(items = list) { data ->
-            Column {
-                Box(
-                    contentAlignment = Alignment.Center, modifier = Modifier
-                        .padding(vertical = 8.dp)
-                        .background(color = Color.White, shape = RoundedCornerShape(8.dp))
-                        .fillMaxSize()
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier.padding(vertical = 8.dp)
-                    ) {
-                        CreateText(screen = data, navController)
-                    }
-                }
-                Divider(
-                    modifier = Modifier
-                        .height(2.dp)
-                        .padding(horizontal = 8.dp)
-                        .background(Color.White)
-                )
+            AddItem(data = data, navController = navController)
+        }
+    }
+}
+
+@Composable
+fun AddItem(data: String, navController: NavController) {
+    Column {
+        Box(
+            contentAlignment = Alignment.Center, modifier = Modifier
+                .padding(vertical = 8.dp)
+                .background(color = Color.White, shape = RoundedCornerShape(8.dp))
+                .fillMaxSize()
+        ) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.padding(vertical = 8.dp)
+            ) {
+                CreateText(screen = data, navController)
             }
         }
+        Divider(
+            modifier = Modifier
+                .height(2.dp)
+                .padding(horizontal = 8.dp)
+                .background(Color.White)
+        )
     }
 }
 
@@ -74,10 +78,8 @@ fun CreateText(screen: String, navController: NavController) {
             fontStyle = FontStyle.Normal
         ),
         modifier = Modifier.clickable {
-            Log.d("zzzzz",screen)
             navController.navigate(
                 screen.getScreenId().withData()
-
             )
         },
         text = screen
