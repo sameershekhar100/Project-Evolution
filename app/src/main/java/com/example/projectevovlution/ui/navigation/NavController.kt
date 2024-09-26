@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.mylibrary.NoteScreen
+import com.example.news.NewsScreen
 import com.example.projectevovlution.ui.route.Screen
 import com.example.projectevovlution.ui.screen.calculatorscreen.CalculatorScreen
 import com.example.projectevovlution.ui.screen.DetailScreen
@@ -37,8 +38,8 @@ fun NavController() {
             NoteScreen()
         }
 
-//        composable(route = Screen.NewsScreen.route){
-//            NewsScreen
-//        }
+        composable(route = Screen.NewsScreen.route){
+            NewsScreen()
+        }
     }
 }

@@ -28,7 +28,7 @@ import com.example.projectevovlution.ui.route.getScreenId
 
 @Composable
 fun MainScreen(navController: NavController) {
-    val list = listOf("Calculator Screen", "Notes Screen", "News App")
+    val list = listOf("Calculator Screen", "Notes Screen", "News Screen")
     LazyColumn(
         modifier = Modifier
             .fillMaxWidth()
@@ -37,28 +37,33 @@ fun MainScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         items(items = list) { data ->
-            Column {
-                Box(
-                    contentAlignment = Alignment.Center, modifier = Modifier
-                        .padding(vertical = 8.dp)
-                        .background(color = Color.White, shape = RoundedCornerShape(8.dp))
-                        .fillMaxSize()
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier.padding(vertical = 8.dp)
-                    ) {
-                        CreateText(screen = data, navController)
-                    }
-                }
-                Divider(
-                    modifier = Modifier
-                        .height(2.dp)
-                        .padding(horizontal = 8.dp)
-                        .background(Color.White)
-                )
+            AddItem(data = data, navController = navController)
+        }
+    }
+}
+
+@Composable
+fun AddItem(data: String, navController: NavController) {
+    Column {
+        Box(
+            contentAlignment = Alignment.Center, modifier = Modifier
+                .padding(vertical = 8.dp)
+                .background(color = Color.White, shape = RoundedCornerShape(8.dp))
+                .fillMaxSize()
+        ) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.padding(vertical = 8.dp)
+            ) {
+                CreateText(screen = data, navController)
             }
         }
+        Divider(
+            modifier = Modifier
+                .height(2.dp)
+                .padding(horizontal = 8.dp)
+                .background(Color.White)
+        )
     }
 }
 

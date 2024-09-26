@@ -1,22 +1,17 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    alias(libs.plugins.org.jetbrains.kotlin.kapt)
-    alias(libs.plugins.hiltAndroid)
 }
 
 android {
-    namespace = "com.example.projectevovlution"
+    namespace = "com.example.news"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.projectevovlution"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "0.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -54,6 +49,8 @@ android {
 dependencies {
 
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
@@ -68,17 +65,4 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation(libs.compose.navigation)
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
-    implementation(project(":notes"))
-    implementation(project(":news"))
-
-//    implementation project (':mylibrary')
-}
-kapt {
-    correctErrorTypes = true
-}
-tasks.register("printVersionName") {
-    println ("v" + android.defaultConfig.versionName )
 }
