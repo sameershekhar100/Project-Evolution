@@ -6,13 +6,11 @@ plugins {
 android {
     namespace = "com.example.news"
     compileSdk = 34
-
     defaultConfig {
         minSdk = 24
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String","API_KEY","API_KEY")
-        buildConfigField("String","BASE_URL","BASE_URL")
+        buildConfigField("String","API_KEY","\"57d5cc94bc6c46dc82377b0db284d865\"")
+        buildConfigField("String","BASE_URL","\"https://newsapi.org\"")
         consumerProguardFiles("consumer-rules.pro")
         vectorDrawables {
             useSupportLibrary = true
@@ -21,7 +19,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
