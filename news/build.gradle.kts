@@ -11,6 +11,8 @@ android {
         minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String","API_KEY","API_KEY")
+        buildConfigField("String","BASE_URL","BASE_URL")
         consumerProguardFiles("consumer-rules.pro")
         vectorDrawables {
             useSupportLibrary = true
@@ -35,6 +37,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -65,4 +68,6 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation(libs.gson)
 }
