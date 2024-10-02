@@ -6,6 +6,7 @@ import com.example.news.datalayer.repository.datasource.NewsRemoteDataSource
 import com.example.news.datalayer.util.Resource
 import com.example.news.domainlayer.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import retrofit2.Response
 
 class NewsRepositoryImpl(
@@ -26,6 +27,7 @@ class NewsRepositoryImpl(
     }
 
     override suspend fun getSearchedNews(searchQuery: String): Resource<APIResponse> {
+        return Resource.Loading()
 //        TODO("Not yet implemented")
     }
 
@@ -38,6 +40,7 @@ class NewsRepositoryImpl(
     }
 
     override fun getSavedNews(): Flow<List<Article>> {
+        return flow { emptyList<Article>() }
 //        TODO("Not yet implemented")
     }
 }
