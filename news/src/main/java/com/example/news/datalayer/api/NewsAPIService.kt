@@ -12,7 +12,7 @@ interface NewsAPIService {
         @Query("country")
         country: String,
         @Query("page")
-        page: String,
+        page: Int,
         @Query("apiKey")
         apiKey: String= BuildConfig.API_KEY
     ):Response<APIResponse>

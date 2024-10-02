@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.org.jetbrains.kotlin.kapt)
+    alias(libs.plugins.hiltAndroid)
 }
 
 android {
@@ -36,6 +38,7 @@ android {
     buildFeatures {
         compose = true
         buildConfig = true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -69,6 +72,9 @@ dependencies {
 
     implementation (libs.retrofit)
     implementation (libs.retrofit.gson)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 
     implementation(libs.gson)
 }
