@@ -7,11 +7,11 @@ import com.example.projectevovlution.ui.route.Screen.NewsScreen
 import com.example.projectevovlution.ui.route.Screen.NotesScreen
 
 sealed class Screen(val route: String) {
-    object MainScreen : Screen("main_screen")
-    object DetailScreen : Screen("detail_screen")
-    object CalculatorScreen : Screen("calculator_screen")
-    object NotesScreen : Screen("notes_screen")
-    object NewsScreen : Screen("news_screen")
+    data object MainScreen : Screen("main_screen")
+    data object DetailScreen : Screen("detail_screen")
+    data object CalculatorScreen : Screen("calculator_screen")
+    data object NotesScreen : Screen("notes_screen")
+    data object NewsScreen : Screen("news_screen")
 
     fun withData(vararg data: String) =
         buildString {
