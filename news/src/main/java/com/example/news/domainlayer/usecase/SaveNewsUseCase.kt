@@ -5,6 +5,6 @@ import com.example.news.domainlayer.repository.NewsRepository
 
 class SaveNewsUseCase(private val newsRepository: NewsRepository) {
     suspend fun execute(article: Article) {
-        return newsRepository.deleteNews(article)
+        return newsRepository.saveNews(article)
     }
 }
