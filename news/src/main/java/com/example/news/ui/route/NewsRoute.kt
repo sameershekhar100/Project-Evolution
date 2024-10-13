@@ -1,8 +1,5 @@
 package com.example.news.ui.route
 
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.vectorResource
 import com.example.news.R
 
 sealed class NewsRoute(
@@ -25,8 +22,4 @@ sealed class NewsRoute(
         unselectedIcon = R.drawable.outline_save_24
 
     )
-}
-@Composable
-fun getImage(res:Int):ImageVector{
-    return ImageVector.vectorResource(id = res)
 }
