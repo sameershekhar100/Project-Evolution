@@ -1,7 +1,10 @@
 package com.example.news.ui.screens
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -9,6 +12,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.navigation.NavDestination
@@ -25,7 +29,13 @@ import com.example.news.ui.route.NewsRoute
 fun NewsScreen(navController: NavHostController = rememberNavController()) {
     Scaffold(bottomBar = { CreateBottomBar(navController) })
     {
-        HomeNavGraph(navController = navController)
+        Box(
+            modifier = Modifier.padding(
+                PaddingValues(bottom = it.calculateBottomPadding())
+            )
+        ) {
+            HomeNavGraph(navController = navController)
+        }
     }
 }
 

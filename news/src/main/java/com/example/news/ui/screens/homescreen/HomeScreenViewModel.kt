@@ -34,6 +34,7 @@ class HomeScreenViewModel @Inject constructor(
             }.onFailure {
                 _newsList.emit(Resource.Error(it.message.toString()))
             }
+        }.invokeOnCompletion { //Need to cancel the connection callback
         }
 
     private fun isOnline(): Boolean {

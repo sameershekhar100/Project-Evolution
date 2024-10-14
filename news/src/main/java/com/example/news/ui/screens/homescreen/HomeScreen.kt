@@ -40,7 +40,9 @@ fun HomeScreen(viewModel: HomeScreenViewModel = hiltViewModel<HomeScreenViewMode
         is Resource.Success -> {
             apiResponse.data?.let {
                 if (it.articles.isEmpty()) CreateEmptyList()
-                else CreateArticleList(newsList = it.articles)
+                else CreateArticleList(newsList = it.articles
+//                    .filterNot { article -> article.title.contains("[Removed]") }
+                )
             }
             isLoading = false
         }
