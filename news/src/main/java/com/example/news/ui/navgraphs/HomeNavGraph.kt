@@ -6,7 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.news.ui.route.NewsRoute
 import com.example.news.ui.screens.Graph
-import com.example.news.ui.screens.HomeScreen
+import com.example.news.ui.screens.homescreen.HomeScreen
 import com.example.news.ui.screens.SavedScreen
 
 @Composable
