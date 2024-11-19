@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,8 +29,10 @@ import com.example.news.ui.theme.ListBackground
 import com.example.news.ui.theme.ListText
 
 @Composable
-fun CreateArticleList(newsList: List<Article>) {
+fun CreateArticleList(newsList: List<Article>,lazyListState: LazyListState) {
+
     LazyColumn(
+        state = lazyListState,
         modifier = Modifier
             .background(LayoutBackground)
             .padding(8.dp)

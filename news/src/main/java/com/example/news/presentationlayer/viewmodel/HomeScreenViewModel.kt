@@ -1,4 +1,4 @@
-package com.example.news.ui.screens.homescreen
+package com.example.news.presentationlayer.viewmodel
 
 import android.app.Application
 import android.content.Context
