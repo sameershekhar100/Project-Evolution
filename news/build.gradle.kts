@@ -82,5 +82,7 @@ dependencies {
     implementation (libs.androidx.hilt.navigation.compose)
     kapt(libs.hilt.compiler)
 
-    implementation(libs.gson)
+    implementation (libs.glide)
+    implementation(libs.coil.compose)
+
 }

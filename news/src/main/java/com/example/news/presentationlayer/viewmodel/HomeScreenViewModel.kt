@@ -1,4 +1,4 @@
-package com.example.news.ui.screens.homescreen
+package com.example.news.presentationlayer.viewmodel
 
 import android.app.Application
 import android.content.Context
@@ -34,6 +34,7 @@ class HomeScreenViewModel @Inject constructor(
             }.onFailure {
                 _newsList.emit(Resource.Error(it.message.toString()))
             }
+        }.invokeOnCompletion { //Need to cancel the connection callback
         }
 
     private fun isOnline(): Boolean {
